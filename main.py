@@ -20,18 +20,19 @@ def display_sequence(stdscr, current_sequence):
         time.sleep(2)
         stdscr.clear()
         stdscr.refresh()
+        time.sleep(1)
 
 def get_user_input(stdscr, sequence_length):
     user_input = []
     stdscr.addstr(1, 0, 'Your turn! Press the correct keys!')
     stdscr.refresh()
-    time.sleep(3)
+    time.sleep(2)
 
     for _ in range(sequence_length):
         key = stdscr.getch()
         user_input.append(chr(key))
         stdscr.refresh()
-        time.sleep(0.5)
+        time.sleep(0.2)
     return user_input
 
 def check_user_input(current_sequence, user_input):
@@ -51,9 +52,11 @@ def play_round(stdscr, current_sequence):
         time.sleep(1)
         play_round(stdscr, new_sequence)
     else:
+        stdscr.clear()
+        stdscr.refresh()
         stdscr.addstr('Sorry, you lose!')
         stdscr.refresh()
-        time.sleep(3)
+        time.sleep(1)
 
 def start_game(stdscr):
     stdscr.clear()
