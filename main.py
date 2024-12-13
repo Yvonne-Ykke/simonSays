@@ -57,10 +57,11 @@ def play_round(stdscr, current_sequence):
         stdscr.addstr('Sorry, you lose!')
         stdscr.refresh()
         time.sleep(1)
+        curses.wrapper(start_game(stdscr))
 
 def start_game(stdscr):
     stdscr.clear()
-    stdscr.addstr(0, 0, 'Welcome to Simon Says!')
+    stdscr.addstr(0, 0, 'Welcome to Simon Says! Remember the letters!')
     stdscr.refresh()
     time.sleep(2)
 
